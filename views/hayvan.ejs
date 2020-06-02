@@ -1,0 +1,68 @@
+<% layout("layout") %>
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-3"></div>
+		<div class="col-sm-6">
+			<form action="/hayvan/ekle" method="post">
+				<div class="form-group col-md-4">
+					<label>Hayvan Adı</label>
+					<input type="text" name="adi" 
+					class="form-control" placeholder="Hayvan Adı">				
+				</div>
+				<div class="form-group col-md-4">
+					<label>Yaşı</label>
+					<input type="number" name="yas" 
+					class="form-control" placeholder="Hayvan Yaşı">
+				</div>
+				<div class="form-group col-md-4">
+					<label>Cinsiyeti</label>
+					<select class="form-control" name="cinsiyet">
+						<option>Dişi</option>
+						<option>Erkek</option>
+					</select>	
+				</div>
+				<div class="form-group col-md-12">
+					<label>Açıklama</label>
+					<textarea class="form-control" name="aciklama" rows="3" ></textarea>
+					
+				</div>
+				<div class="form-group col-md-12">
+					<button type="submit" class="btn btn-success pull-right">Kaydet</button>
+				</div>
+
+			</form>
+			
+		</div>
+		
+	</div>
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<table class="table table-responsive">
+				<thead>
+					<tr>
+						<th>HAYVAN ADI</th>
+						<th>YAŞ</th>
+						<th>CİNSİYET</th>
+						<th>AÇIKLAMA</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% hayvan.forEach(function(data) { %>
+						<tr>
+							<td> <%= data.adi %> </td>
+							<td> <%= data.yas %> </td>
+							<td> <%= data.cinsiyet %> </td>
+							<td> <%= data.aciklama %> </td>
+							<td> <a class="btn btn-danger btn-xs" href="/hayvansil/<%= data._id %>">SİL</a> </td>
+						</tr>
+					<% }) %>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+
+</div>

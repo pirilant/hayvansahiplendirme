@@ -6,7 +6,14 @@ const logger = require('morgan');
 const mongoose = require("mongoose");
 const engine = require("ejs-locals")
 
-mongoose.connect("mongodb://localhost:27017/hayvan")
+// mongoose.connect("mongodb://localhost:27017/hayvan")
+mongoose.connect("mongodb://piril:q1w2e3@ds159025.mlab.com:59025/hayvansahiplendirme",(err,data)=>{
+	if (err) {
+		console.log(err)
+	}else{
+		console.log('basarili')
+	}
+})
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
